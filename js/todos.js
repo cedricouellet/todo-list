@@ -33,7 +33,6 @@ export const getTodos = () => {
     return [];
   }
   setNextId(1 + todos.slice(-1)[0].id);
-  console.log(todos);
   return todos;
 };
 
