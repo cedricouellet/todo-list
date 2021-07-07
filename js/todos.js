@@ -1,12 +1,27 @@
 const TODOS = "todos";
-let nextId;
+const NEXT_ID = "nextId";
+
+const getNextId = () => {
+  let nextId = parseInt(localStorage.getItem(NEXT_ID));
+  if (!nextId) {
+    nextId = 1;
+    setNextId(nextId);
+  }
+  return nextId;
+};
+
+const setNextId = (val) => {
+  localStorage.setItem(NEXT_ID, val);
+};
 
 export const createTodo = (title) => {
   const todo = {
-    id: nextId,
+    id: getNextId(),
     title: title,
     complete: false,
   };
+
+  setNextId(getNextId() + 1);
 
   return todo;
 };
@@ -14,10 +29,11 @@ export const createTodo = (title) => {
 export const getTodos = () => {
   let todos = JSON.parse(localStorage.getItem(TODOS));
   if (todos.length === 0) {
-    nextId = 1;
+    setNextId(1);
     return [];
   }
-  nextId = 1 + todos.slice(-1)[0].id;
+  setNextId(1 + todos.slice(-1)[0].id);
+  console.log(todos);
   return todos;
 };
 

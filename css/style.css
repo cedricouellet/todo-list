@@ -5,9 +5,7 @@
 }
 
 html {
-  background: url("../images/landscape.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: rgb(31, 31, 31);
   overflow-x: hidden;
 }
 
@@ -71,6 +69,7 @@ body,
 }
 
 #header {
+  box-shadow: 0 8px 6px -6px black;
   z-index: 1000;
   position: fixed;
   top: 0;
@@ -85,7 +84,9 @@ body,
 }
 
 #footer {
-  font-size: 20px;
+  color: gray;
+  font-size: 1.3em;
+  height: 2em;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -111,7 +112,7 @@ body,
 }
 
 #todoInput:focus {
-  color: white;
+  color: whitesmoke;
   outline: none;
 }
 
@@ -173,11 +174,49 @@ body,
   font-size: 1.5em;
 }
 
-@media only screen and (max-width: 640px) {
-  html {
-    background-size: auto;
+@media (hover: hover) and (pointer: fine) {
+  #clearBtn:hover {
+    animation: clearBtnHover forwards 1s;
   }
 
+  #todoInputBtn:hover {
+    animation: addBtnHover forwards 1s;
+  }
+
+  .todoCheckBtn:hover {
+    animation: checkBtnHover forwards 1s;
+  }
+
+  .todoDeleteBtn:hover {
+    animation: deleteBtnHover forwards 1s;
+  }
+
+  @keyframes addBtnHover {
+    100% {
+      background: rgba(1, 255, 14, 0.25);
+    }
+  }
+
+  @keyframes clearBtnHover {
+    100% {
+      background: rgba(255, 0, 0, 0.25);
+    }
+  }
+
+  @keyframes checkBtnHover {
+    100% {
+      background: rgba(63, 139, 252, 0.25);
+    }
+  }
+
+  @keyframes deleteBtnHover {
+    100% {
+      background: rgba(255, 255, 0, 0.25);
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
   #todosContainer {
     transform: translate(10%, 0%);
   }
@@ -197,11 +236,6 @@ body,
 @font-face {
   font-family: "Poppins 700";
   src: url("../fonts/Poppins-Bold.ttf");
-}
-
-@font-face {
-  font-family: "Poppins 300";
-  src: url("../fonts/Poppins-Light.ttf");
 }
 
 @font-face {
