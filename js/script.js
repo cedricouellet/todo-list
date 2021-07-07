@@ -1,3 +1,8 @@
+/*
+ * Author : Cedric-Antoine Ouellet
+ * Date   : 2021/07/06
+ */
+
 import {
   createTodo,
   storeTodo,
