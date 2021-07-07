@@ -34,12 +34,9 @@ todoInput.addEventListener("keyup", (e) => {
 
 // --- Functions ---
 function handleClearBtnClick() {
-  const input = prompt("Are you sure you want to clear all todos? (y/n)", "n");
-  if (!input) return;
-
-  if (input.toLowerCase() === "y" || input.toLowerCase() === "yes") {
-    clearTodos();
-  }
+  const isSure = confirm("Are you sure you want to clear all todos?");
+  if (!isSure) return;
+  clearTodos();
 }
 
 function clearTodos() {
