@@ -28,7 +28,7 @@ export const createTodo = (title) => {
 
 export const getTodos = () => {
   let todos = JSON.parse(localStorage.getItem(TODOS));
-  if (todos.length === 0) {
+  if (!todos || todos === [] || todos.length === 0) {
     setNextId(1);
     return [];
   }
